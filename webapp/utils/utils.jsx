@@ -464,6 +464,7 @@ export function isHexColor(value) {
 export function applyTheme(theme) {
     if (theme.sidebarBg) {
         changeCss('.sidebar--left, .sidebar--left .sidebar__divider .sidebar__divider__text, .app__body .modal .settings-modal .settings-table .settings-links, .app__body .sidebar--menu', 'background:' + theme.sidebarBg, 1);
+        changeCss('.multi-teams .team-sidebar', 'background-color:' + theme.sidebarBg, 1);
         changeCss('body.app__body', 'scrollbar-face-color:' + theme.sidebarBg, 3);
         changeCss('@media(max-width: 768px){.app__body .modal .settings-modal:not(.settings-modal--tabless):not(.display--content) .modal-content', 'background:' + theme.sidebarBg, 1);
     }
@@ -476,6 +477,7 @@ export function applyTheme(theme) {
         changeCss('.sidebar--left .nav-pills__container li>h4, .sidebar--left .add-channel-btn', 'color:' + changeOpacity(theme.sidebarText, 0.6), 1);
         changeCss('.sidebar--left .add-channel-btn:hover, .sidebar--left .add-channel-btn:focus', 'color:' + theme.sidebarText, 1);
         changeCss('.sidebar--left .status .offline--icon', 'fill:' + theme.sidebarText, 1);
+        changeCss('.multi-teams .team-sidebar .team-wrapper .team-container .team-btn', 'color:' + theme.sidebarText, 1);
         changeCss('@media(max-width: 768px){.app__body .modal .settings-modal .settings-table .nav>li>a, .app__body .sidebar--menu .divider', 'border-color:' + changeOpacity(theme.sidebarText, 0.2), 2);
     }
 
@@ -492,6 +494,8 @@ export function applyTheme(theme) {
         changeCss('.sidebar--left .nav li.active a:before, .app__body .modal .settings-modal .nav-pills>li.active a:before', 'background:' + theme.sidebarTextActiveBorder, 1);
         changeCss('.sidebar--left .sidebar__divider:before', 'background:' + changeOpacity(theme.sidebarTextActiveBorder, 0.5), 1);
         changeCss('.sidebar--left .sidebar__divider', 'color:' + theme.sidebarTextActiveBorder, 1);
+        changeCss('.multi-teams .team-sidebar .team-wrapper .team-container.active:before', 'background:' + theme.sidebarTextActiveBorder, 1);
+        changeCss('.multi-teams .team-sidebar .team-wrapper .team-container.unread:before', 'background:' + theme.sidebarTextActiveBorder, 1);
     }
 
     if (theme.sidebarTextActiveColor) {
@@ -535,11 +539,13 @@ export function applyTheme(theme) {
     if (theme.mentionBj) {
         changeCss('.sidebar--left .nav-pills__unread-indicator', 'background:' + theme.mentionBj, 1);
         changeCss('.sidebar--left .badge', 'background:' + theme.mentionBj + '!important;', 1);
+        changeCss('.multi-teams .team-sidebar .team-wrapper .team-container .team-btn .badge', 'background:' + theme.mentionBj + '!important;', 1);
     }
 
     if (theme.mentionColor) {
         changeCss('.sidebar--left .nav-pills__unread-indicator', 'color:' + theme.mentionColor, 2);
         changeCss('.sidebar--left .badge', 'color:' + theme.mentionColor + '!important;', 2);
+        changeCss('.multi-teams .team-sidebar .team-wrapper .team-container .team-btn .badge', 'color:' + theme.mentionColor + '!important;', 2);
     }
 
     if (theme.centerChannelBg) {
